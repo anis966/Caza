@@ -58,17 +58,19 @@ export default function FacebookAuth() {
         const { access_token } = body;
 
         const response2 = await fetch(
-          `https://graph.facebook.com/me?access_token=${access_token}&fields=id,name,picture.type(large)`, requestOptions
+          `https://graph.facebook.com/me?access_token=${access_token}&fields=id,name,picture,email`, requestOptions
         );
 
         const parsedResponse = await response2.json();
         console.log(parsedResponse)
         const picture = parsedResponse?.picture?.data?.url;
+        const email = parsedResponse?.email;
         console.log("urllllllllllllllllllllllllllllllllllllllllllll",picture)
         const  name  = parsedResponse?.name;
         const user = {
           name,
           picture,
+          email
         };
   
         // navigate to the HomeScreen and pass the user object
