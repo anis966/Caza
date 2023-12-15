@@ -1,6 +1,6 @@
 {
   "expo": {
-    "scheme": "YourAuthApp",
+    "scheme": ["yourauthapp"],
     "name": "YourAuthApp",
     "slug": "YourAuthApp",
     "version": "1.0.0",

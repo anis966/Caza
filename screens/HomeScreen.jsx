@@ -9,8 +9,8 @@ export default class HomeScreen extends Component {
     this.state = {
       userInfo: null,
       name: null,
-      email: null,
       picture: null,
+      email: null,
     };
   }
 
