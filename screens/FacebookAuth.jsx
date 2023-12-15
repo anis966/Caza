@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { View, Button, StyleSheet , TouchableOpacity,Text} from 'react-native';
 import Constants from 'expo-constants';
 import * as Facebook from 'expo-auth-session/providers/facebook';
 import * as AuthSession from 'expo-auth-session';
@@ -18,22 +18,21 @@ export default function FacebookAuth() {
 
   const [request, response, promptAsync] = Facebook.useAuthRequest({
     clientId: '1103569104349638',
-    clientSecretr: "ba96e245e20b8a1b5b64a9d03efb08a7",
     responseType: ResponseType.Code,
-    redirectUri: "https://8000-tekabdevtea-generatedse-cppf3aw8d6g.ws-eu107.gitpod.io/redirectUri"
+    redirectUri: "https://6001-apolloimmo-appclient-3ogf5izk99o.ws-eu107.gitpod.io/auth1/facebook"
   });
 
 
 
  // console.log("request: => ", request);
-  console.log("response: => ", response);
+  // console.log("response: => ", response);
 
+  console.log('ddjdjdjdjdjdjdjdj',response)
 
   React.useEffect(() => {
     if (response?.type === 'success') {
 
       const { code } = response.params;
-
       const fetchData = async () => {
 
         const requestOptions = {
@@ -45,7 +44,7 @@ export default function FacebookAuth() {
 
         const link = "https://graph.facebook.com/v7.0/oauth/access_token" +
           "?client_id=1103569104349638" +
-          "&redirect_uri=https://8000-tekabdevtea-generatedse-cppf3aw8d6g.ws-eu107.gitpod.io/redirectUri" +
+          "&redirect_uri=https://6001-apolloimmo-appclient-3ogf5izk99o.ws-eu107.gitpod.io/auth1/facebook" +
           "&client_secret=ba96e245e20b8a1b5b64a9d03efb08a7" +
           "&grant_type=authorization_code" + 
           "&code_verifier=" + request?.codeVerifier +
@@ -85,8 +84,36 @@ export default function FacebookAuth() {
   }, [response]);
 
   return (
-    <View style={{ flex: 1, justifyContent: 'space-evenly', width: '50%', alignSelf: 'center', marginVertical: '10%' }}>
-      <Button onPress={() => promptAsync()} title="Login with FB" />
-    </View>
+    
+        <View style={styles.container}>
+        <TouchableOpacity
+         onPress={() => promptAsync()} 
+        >
+          <View style={styles.circle}>
+            <Text style={styles.text}>F</Text>
+          </View>
+        </TouchableOpacity>
+  
+  
+      </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  circle: {
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
+    backgroundColor: "blue",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    color: "white",
+    fontSize: 20,
+  },
+});

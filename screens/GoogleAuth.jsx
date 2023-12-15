@@ -11,7 +11,7 @@ const GoogleUp = () => {
 
 
   const GOOGLE_CLIENT_ID = "889361832969-bimdap0ffqo6tp49a23brnmav427nn41.apps.googleusercontent.com"
-  const GOOGLE_REDIRECT_URI = "https://6001-apolloimmo-appclient-0cndw6kr1g8.ws-eu106.gitpod.io/auth1/google"
+  const GOOGLE_REDIRECT_URI = "https://6001-apolloimmo-appclient-3ogf5izk99o.ws-eu107.gitpod.io/auth1/google"
 
   const handlePress = async () => {
     const result = await WebBrowser.openAuthSessionAsync(

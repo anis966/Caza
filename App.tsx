@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import GoogleAuth from './screens/GoogleAuth'; 
 import HomeScreen from './screens/HomeScreen'; 
 import FacebookAuth from './screens/FacebookAuth'; 
+import AuthPage from './screens/AuthPage'; 
 
 
 const Stack = createStackNavigator();
@@ -11,7 +12,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fbAuth">
+      <Stack.Navigator initialRouteName="AuthPage">
+        <Stack.Screen name="AuthPage" component={AuthPage} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="GoogleAuth" component={GoogleAuth} />
         <Stack.Screen name="fbAuth" component={FacebookAuth} />
