@@ -12,7 +12,12 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AuthPage">
+      <Stack.Navigator 
+        initialRouteName="AuthPage"
+        screenOptions={{
+          headerShown: false, // Hide the header for all screens
+        }}
+      >
         <Stack.Screen name="AuthPage" component={AuthPage} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="GoogleAuth" component={GoogleAuth} />

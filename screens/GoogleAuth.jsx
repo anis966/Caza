@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View , Image} from "react-native";
 import React from "react";
 import * as WebBrowser from "expo-web-browser";
 import { useNavigation } from "@react-navigation/native";
@@ -11,7 +11,7 @@ const GoogleUp = () => {
 
 
   const GOOGLE_CLIENT_ID = "889361832969-bimdap0ffqo6tp49a23brnmav427nn41.apps.googleusercontent.com"
-  const GOOGLE_REDIRECT_URI = "https://6001-apolloimmo-appclient-3ogf5izk99o.ws-eu107.gitpod.io/auth1/google"
+  const GOOGLE_REDIRECT_URI = "https://6001-apolloimmo-appclient-3vo7irhin8u.ws-eu107.gitpod.io/auth1/google"
 
   const handlePress = async () => {
     const result = await WebBrowser.openAuthSessionAsync(
@@ -42,17 +42,10 @@ const GoogleUp = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={handlePress}
-      >
-        <View style={styles.circle}>
-          <Text style={styles.text}>G</Text>
-        </View>
-      </TouchableOpacity>
-
-
-    </View>
+    <TouchableOpacity onPress={handlePress} style={styles.googleButton}>
+      <Image source={{ uri: 'https://w7.pngwing.com/pngs/989/129/png-transparent-google-logo-google-search-meng-meng-company-text-logo-thumbnail.png' }} style={styles.googleLogo} />
+      <Text style={styles.buttonText}>Continuer avec Google</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -60,21 +53,31 @@ const GoogleUp = () => {
 export default GoogleUp;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  circle: {
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-    backgroundColor: "#DEB887",
-    justifyContent: "center",
-    alignItems: "center",
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 48,
+    borderWidth: 1,
+    borderColor: '#344254',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    width: '80%',
   },
   text: {
-    color: "white",
+    color: 'white',
     fontSize: 20,
+  },
+  buttonText: {
+    color: '#1F2C39',
+    fontSize: 18,
+    fontWeight: '400',
+    lineHeight: 25,
+  },
+  googleLogo: {
+    width: 30,
+    height: 30,
+    borderRadius: 50 / 2,
+    marginRight: 10,
   },
 });
